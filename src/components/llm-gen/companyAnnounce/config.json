@@ -1,0 +1,103 @@
+{
+    "emitEvent": true,
+    "fitHeight": true,
+    "apis": [
+        {
+            "method": "post",
+            "isFirstScreen": true,
+            "alis": "timeLine",
+            "url": "https://data.10jqka.com.cn/basicapi/visual/smart/dev/index/v1/visual",
+            "params": {
+                "business_id": "configurable_fetcher",
+                "config_id": "company_announcements_v2_fetcher_config",
+                "subjects": [
+                    "${market}-${code}"
+                ],
+                "strategy": "newest",
+                "engine": "default",
+                "source": "http_custom",
+                "extensions": {}
+            },
+            "returnValExample": {
+              "data": [
+                {
+                    "移动端url": "https://news.10jqka.com.cn/tapp/notice.html#seq=52467761",
+                    "原始url": "http://static.cninfo.com.cn/finalpage/2025-05-21/1223626160.PDF",
+                    "日期": "2025-05-21",
+                    "pc端url": "http://news.10jqka.com.cn/field/sn/20250521/52467761.shtml",
+                    "股票简称": "钢研高纳",
+                    "标题": "钢研高纳：关于为全资子公司四川钢研高纳锻造有限责任公司和辽宁钢研高纳智能制造有限公司提供担保的进展公告",
+                    "股票代码": "300034"
+                },
+                {
+                    "移动端url": "https://news.10jqka.com.cn/tapp/notice.html#seq=52382871",
+                    "原始url": "http://static.cninfo.com.cn/finalpage/2025-05-15/1223557081.PDF",
+                    "日期": "2025-05-15",
+                    "pc端url": "http://news.10jqka.com.cn/field/sn/20250515/52382871.shtml",
+                    "股票简称": "钢研高纳",
+                    "标题": "钢研高纳：2024年年度股东大会决议公告",
+                    "股票代码": "300034"
+                }],
+              "input": {
+                "data_type": "Tabular",
+                "attribute_description": [
+                    {
+                        "attribute_name": "股票简称",
+                        "attribute_type": "STR",
+                        "attribute_unit": null
+                    },
+                    {
+                        "attribute_name": "股票代码",
+                        "attribute_type": "STR",
+                        "attribute_unit": null
+                    },
+                    {
+                        "attribute_name": "日期",
+                        "attribute_type": "DATE",
+                        "attribute_unit": ""
+                    },
+                    {
+                        "attribute_name": "标题",
+                        "attribute_type": "STR",
+                        "attribute_unit": ""
+                    },
+                    {
+                        "attribute_name": "移动端url",
+                        "attribute_type": "STR",
+                        "attribute_unit": ""
+                    },
+                    {
+                        "attribute_name": "pc端url",
+                        "attribute_type": "STR",
+                        "attribute_unit": ""
+                    },
+                    {
+                        "attribute_name": "原始url",
+                        "attribute_type": "STR",
+                        "attribute_unit": ""
+                    }
+                ]
+            }
+            }
+        }
+    ],
+    "view": [{
+        "main": {
+          "layers": [
+            {
+              "type": "timeLine",
+              "encoding": {
+                "label": "",
+                "time": "日期",
+                "title": "标题",
+                "url": "pc端url",
+                "importance": ""
+              },
+              "maxHeight": 438,
+              "width": 436
+            }
+          ]
+        }
+      }
+    ]
+}

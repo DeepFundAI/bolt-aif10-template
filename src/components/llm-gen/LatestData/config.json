@@ -1,0 +1,278 @@
+{
+    "emitEvent": true,
+    "fitHeight": true,
+    "amisConfig": {
+        "tabs": [
+            {
+                "name": "当前数值",
+                "config_id": "latest_data_4tabs_fetcher_config"
+            },
+            {
+                "name": "同比数值",
+                "config_id": "latest_data_4tabs_yoy_fetcher_config"
+            },
+            {
+                "name": "行业排名",
+                "config_id": "latest_data_4tabs_rank_fetcher_config"
+            },
+            {
+                "name": "行业均值",
+                "config_id": "latest_data_4tabs_avg_fetcher_config"
+            }
+        ]
+    },
+    "apis": [
+        {
+            "method": "post",
+            "isFirstScreen": true,
+            "alis": "table",
+            "depends": [
+                "tabs"
+            ],
+            "url": "https://data.10jqka.com.cn/basicapi/visual/smart/dev/index/v1/visual",
+            "params": {
+                "business_id": "configurable_fetcher",
+                "config_id": "${tabs[0].config_id}",
+                "subjects": [
+                    "${market}-${code}"
+                ],
+                "strategy": "newest",
+                "engine": "default",
+                "source": "graal_js",
+                "extensions": {
+                    "format": "original"
+                }
+            },
+            "returnValExample": {
+                "data": [
+                    {
+                        "总市值": "1382.55亿",
+                        "每股净资产": "12.05元",
+                        "商誉": "389.53万元",
+                        "变动日期": null,
+                        "扣非净利润同比": "13.72%",
+                        "归母净利润同比": "15.91%",
+                        "营业利润同比": "18.02%",
+                        "净资产收益率": null,
+                        "股票简称": "同花顺",
+                        "扣非净利润": "1.13亿元",
+                        "每股经营现金流": "0.58元",
+                        "总股本": null,
+                        "资产负债率": "29.72%",
+                        "流通A股市值": "708.52亿",
+                        "营业总收入": "7.48亿元",
+                        "截止日期": "2025-03-31",
+                        "销售毛利率": "84.30%",
+                        "每股未分配利润": "9.64元",
+                        "股票代码": "300033",
+                        "市盈率(TTM)": null,
+                        "市净率(MRQ)": null,
+                        "销售净利率": null,
+                        "基本每股收益": "0.22元",
+                        "营业利润": "1.32亿元",
+                        "股息率": null,
+                        "归母净利润": "1.20亿元",
+                        "营业总收入同比": "20.90%",
+                        "同花顺代码": "300033.SZ",
+                        "流通A股": null
+                    }
+                ],
+                "input": {
+                    "data_type": "Tabular",
+                    "attribute_description": [
+                        {
+                            "attribute_name": "股票代码",
+                            "attribute_type": "STR",
+                            "attribute_unit": ""
+                        },
+                        {
+                            "attribute_name": "股票简称",
+                            "attribute_type": "STR",
+                            "attribute_unit": ""
+                        },
+                        {
+                            "attribute_name": "同花顺代码",
+                            "attribute_type": "STR",
+                            "attribute_unit": ""
+                        },
+                        {
+                            "attribute_name": "截止日期",
+                            "attribute_type": "DATE",
+                            "attribute_unit": ""
+                        },
+                        {
+                            "attribute_name": "商誉",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "元"
+                        },
+                        {
+                            "attribute_name": "营业总收入",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "元"
+                        },
+                        {
+                            "attribute_name": "归母净利润同比",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "%"
+                        },
+                        {
+                            "attribute_name": "营业总收入同比",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "%"
+                        },
+                        {
+                            "attribute_name": "流通A股",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "股"
+                        },
+                        {
+                            "attribute_name": "变动日期",
+                            "attribute_type": "DATE",
+                            "attribute_unit": ""
+                        },
+                        {
+                            "attribute_name": "扣非净利润",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "元"
+                        },
+                        {
+                            "attribute_name": "每股未分配利润",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "元"
+                        },
+                        {
+                            "attribute_name": "每股经营现金流",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "元"
+                        },
+                        {
+                            "attribute_name": "归母净利润",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "元"
+                        },
+                        {
+                            "attribute_name": "扣非净利润同比",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "%"
+                        },
+                        {
+                            "attribute_name": "总股本",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "股"
+                        },
+                        {
+                            "attribute_name": "净资产收益率",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "%"
+                        },
+                        {
+                            "attribute_name": "股息率",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "%"
+                        },
+                        {
+                            "attribute_name": "市净率(MRQ)",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": ""
+                        },
+                        {
+                            "attribute_name": "资产负债率",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "%"
+                        },
+                        {
+                            "attribute_name": "基本每股收益",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "元"
+                        },
+                        {
+                            "attribute_name": "营业利润",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "元"
+                        },
+                        {
+                            "attribute_name": "营业利润同比",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "%"
+                        },
+                        {
+                            "attribute_name": "销售毛利率",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "%"
+                        },
+                        {
+                            "attribute_name": "市盈率(TTM)",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": ""
+                        },
+                        {
+                            "attribute_name": "销售净利率",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "%"
+                        },
+                        {
+                            "attribute_name": "每股净资产",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": "元"
+                        },
+                        {
+                            "attribute_name": "总市值",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": ""
+                        },
+                        {
+                            "attribute_name": "流通A股市值",
+                            "attribute_type": "DOUBLE",
+                            "attribute_unit": ""
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "view": 
+        {
+            "main": {
+                "layers": [
+                    {
+                        "label": {
+                            "formatter": "{b} {d}%"
+                        },
+                        "type": "multiTable",
+                        "encoding": {
+                            "columns": [],
+                            "rows": [
+                                "市盈率(TTM)",
+                                "市净率(MRQ)",
+                                "股息率",
+                                "商誉",
+                                "营业总收入",
+                                "营业利润",
+                                "归母净利润",
+                                "扣非净利润",
+                                "营业总收入同比",
+                                "营业利润同比",
+                                "归母净利润同比",
+                                "扣非净利润同比",
+                                "净资产收益率",
+                                "销售毛利率",
+                                "销售净利率",
+                                "资产负债率",
+                                "总市值",
+                                "总股本",
+                                "流通A股市值",
+                                "流通A股",
+                                "基本每股收益",
+                                "每股净资产",
+                                "每股经营现金流",
+                                "每股未分配利润"
+                            ]
+                        },
+                        "columnsNum": "8",
+                        "width": 920
+                    }
+                ],
+                "dvInsight": []
+            }
+        }
+}

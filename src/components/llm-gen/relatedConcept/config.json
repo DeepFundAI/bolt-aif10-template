@@ -1,0 +1,199 @@
+{
+    "emitEvent": true,
+    "fitHeight": true,
+    "apis": [
+        {
+            "method": "get",
+            "isFirstScreen": true,
+            "alis": "conceptList",
+            "url": "https://basic.10jqka.com.cn/fuyao/f10_migrate/company/v1/concept_list",
+            "params": {
+                "code": "${code}",
+                "market_id": "${market}",
+                "noWithCredentials": 1
+            },
+            "returnValExample": {
+                "status_code": 0,
+                "data": [
+                    {
+                        "fit_rank": 2,
+                        "name": "互联网金融",
+                        "market_id": "48",
+                        "quote_code": "885456",
+                        "weight": 2,
+                        "tags": [
+                            "走势最相关"
+                        ]
+                    },
+                    {
+                        "fit_rank": 1,
+                        "name": "AI语料",
+                        "market_id": "48",
+                        "quote_code": "886074",
+                        "weight": 0,
+                        "tags": []
+                    }
+                ],
+                "status_msg": "success"
+            }
+        },
+        {
+            "method": "post",
+            "isFirstScreen": true,
+            "alis": "conceptPrice",
+            "depends": [
+                "conceptList"
+            ],
+            "url": "https://quota-h.10jqka.com.cn/fuyao/common_hq_aggr_cache/quote/v1/multi_last_snapshot",
+            "params": {
+                "code_list": [
+                    {
+                        "codes": [
+                            "${quote_codes}"
+                        ],
+                        "market": "${market_id}"
+                    }
+                ],
+                "trade_class": "intraday",
+                "data_fields": [
+                    "10",
+                    "11",
+                    "199112"
+                ],
+                "lang": "zh_cn",
+                "gpid": 0
+            },
+            "returnValExample": {
+                "status_code": 0,
+                "data": {
+                    "quote_data": [
+                        {
+                            "market": "48",
+                            "65541": "intraday",
+                            "65551": "",
+                            "code": "885456",
+                            "delay": false,
+                            "65554": true,
+                            "data_fields": [
+                                "10",
+                                "199112"
+                            ],
+                            "value": [
+                                [
+                                    5561.684,
+                                    -0.1103
+                                ]
+                            ]
+                        },
+                        {
+                            "market": "48",
+                            "65541": "intraday",
+                            "65551": "",
+                            "code": "886074",
+                            "delay": false,
+                            "65554": true,
+                            "data_fields": [
+                                "10",
+                                "199112"
+                            ],
+                            "value": [
+                                [
+                                    1083.344,
+                                    -0.67
+                                ]
+                            ]
+                        },
+                        {
+                            "market": "48",
+                            "65541": "intraday",
+                            "65551": "",
+                            "code": "885663",
+                            "delay": false,
+                            "65554": true,
+                            "data_fields": [
+                                "10",
+                                "199112"
+                            ],
+                            "value": [
+                                [
+                                    1050.07,
+                                    -0.1643
+                                ]
+                            ]
+                        }
+                    ],
+                    "fail_params": null
+                },
+                "status_msg": "ok"
+            }
+        },
+        {
+            "method": "get",
+            "isFirstScreen": true,
+            "alis": "conceptDetail",
+            "depends": [
+                "conceptList"
+            ],
+            "url": "http://basic.10jqka.com.cn/fuyao/f10_migrate/company/v1/concept_detail",
+            "params": {
+                "market_id": "${market}",
+                "code": "${code}",
+                "quote_code": "${selectedData.quote_code}",
+                "quote_market_id": "${selectedData.market_id}",
+                "limit": "4"
+            },
+            "returnValExample": {
+                "status_code": 0,
+                "data": {
+                    "explain": "中国金融信息服务业第一家上市公司，移动互联网证券第三方平台龙头。",
+                    "best_devote": "WYJ_002",
+                    "components": [
+                        {
+                            "code": "002215",
+                            "name": "诺普信",
+                            "market_id": "33",
+                            "weight": 5320,
+                            "stock_boards_for_days": null
+                        },
+                        {
+                            "code": "600476",
+                            "name": "湘邮科技",
+                            "market_id": "17",
+                            "weight": 5316,
+                            "stock_boards_for_days": null
+                        },
+                        {
+                            "code": "000889",
+                            "name": "ST中嘉",
+                            "market_id": "33",
+                            "weight": 5275,
+                            "stock_boards_for_days": null
+                        },
+                        {
+                            "code": "002789",
+                            "name": "*ST建艺",
+                            "market_id": "33",
+                            "weight": 5255,
+                            "stock_boards_for_days": null
+                        }
+                    ],
+                    "code": "885456",
+                    "concept_id": 301209,
+                    "name": "互联网金融",
+                    "market_id": "48",
+                    "up_down_limit_up_num": 2,
+                    "fall_cnt": 135,
+                    "rise_cnt": 54,
+                    "up_down_limit_down_num": null
+                },
+                "status_msg": "success"
+            }
+        }
+    ],
+    "view": {
+        "main": {
+            "layers": [],
+            "dvInsight": []
+        }
+    }
+}

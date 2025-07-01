@@ -1,5 +1,4 @@
 import type { InputData, Section, View } from '@/common/models/recommend-result';
-import { ChartSkinMap } from '@/common/config/echarts-skin';
 import { computed, ref, type Ref } from 'vue';
 import AigcDataVisParam from '@/common/config/aigcdatavis'
 import { useAppInfoStore } from '@/stores/app';
@@ -135,7 +134,7 @@ function formatParams(el: HTMLElement,
     dom: el,
     layout,
     hook: AigcDataVisParam.hook,
-    token: { ...AigcDataVisParam.token, ...ChartSkinMap[skin].config },
+    // token: { ...AigcDataVisParam.token, ...ChartSkinMap[skin].config },
     amisConfig: compInfo.extension?.amisConfig || {},
     apis: compInfo.extension?.apis || [],
     customEvent,

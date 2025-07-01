@@ -2,7 +2,6 @@ import type { InputData, Section, View } from '@/common/models/recommend-result'
 import { computed, ref, type Ref } from 'vue';
 import AigcDataVisParam from '@/common/config/aigcdatavis'
 import { useAppInfoStore } from '@/stores/app';
-import type { ChartData, ChartSelectContent } from '@/common/models/aigc-data-vis';
 import type { Stock, ComponentRenderReturn } from '@/common/models/component-render'
 import { useLLMCompRender } from './llm-comp-render';
 
@@ -32,7 +31,7 @@ function verifierData(view: View, visualIndex: number) {
   return true;
 }
 
-function chartClick(clickEvent: { type: string, data: ChartData }, section: Section, metadata: InputData, renderPosition: string, extension: any) {
+function chartClick(clickEvent: { type: string, data: any }, section: Section, metadata: InputData, renderPosition: string, extension: any) {
   console.log('chartClick', clickEvent)
 }
 
@@ -91,7 +90,7 @@ function formatParams(el: HTMLElement,
     })
   }
 
-  const customEvent = (data: { type: string; data: ChartSelectContent }) =>
+  const customEvent = (data: { type: string; data: any }) =>
     chartClick(data, section, view.visual.input, renderPosition, compInfo.extension)
 
   const layers = compInfo.parameter.map((item) => {

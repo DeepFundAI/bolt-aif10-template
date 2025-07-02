@@ -1,6 +1,5 @@
 import type { InputData, Section, View } from '@/common/models/recommend-result';
 import { computed, ref, type Ref } from 'vue';
-import { ChartSkinMap } from '@/common/config/echarts-skin';
 import AigcDataVisParam from '@/common/config/aigcdatavis'
 import { useAppInfoStore } from '@/stores/app';
 import type { Stock, ComponentRenderReturn } from '@/common/models/component-render'
@@ -134,7 +133,7 @@ function formatParams(el: HTMLElement,
     dom: el,
     layout,
     hook: AigcDataVisParam.hook,
-    token: skin === 'dark' ? { ...AigcDataVisParam.token, ...ChartSkinMap[skin].config } : undefined,
+    token: window.AIGCDataVis.presetThemeBuilder(skin),
     amisConfig: compInfo.extension?.amisConfig || {},
     apis: compInfo.extension?.apis || [],
     customEvent,

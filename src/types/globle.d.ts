@@ -15,6 +15,7 @@ declare global {
       render(dom: HTMLElement, spec: Specification);
       destroy(dom: HTMLElement);
       presetHook: any;
+      presetThemeBuilder(skin: string): any;
     },
     F10Utils: {
       getUrlParams(key: string): string;

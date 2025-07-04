@@ -24,6 +24,7 @@ const getData = async (apis: Array<{
   url: string;
   params: Record<string, any>;
   depends?: string[];
+  returnValueExample?: any;
 }>) => {
   if (!apis || !Array.isArray(apis) || apis.length === 0) {
     return {};
@@ -54,6 +55,10 @@ const getData = async (apis: Array<{
     }
     
     try {
+      if (method.toLowerCase() === 'static') {
+        apiData[alis] = api.returnValueExample || {};
+        continue;
+      }
       // 处理URL和参数
       const processedUrl = processUrl(url, baseParams, apiData);
       const processedParams = processParams(apiParams, apiData, baseParams);
